@@ -1,17 +1,20 @@
 <script setup lang="ts">
-import CounterDisplay from '@/components/CounterDisplay.vue';
-import Title from '@/components/Title.vue';
-import Button from '@/components/ui/button/Button.vue';
-import { useCounterStore } from '@/store/counterStore';
-const counterStore = useCounterStore();
-const { count: countState } = storeToRefs(counterStore);
-const { increment, decrement } = counterStore;
+// 必要なコンポーネントをインポート
+import RoleAssignmentForm from '@/components/RoleAssignmentForm.vue';
+import RoleAssignmentResult from '@/components/RoleAssignmentResult.vue';
 </script>
+
 <template>
-  <section>
-    <Title />
-    <Button @click="increment">Increment</Button>
-    <Button @click="decrement">Decrement</Button>
-    <CounterDisplay :count="countState" />
-  </section>
+  <div class="role-assignment">
+    <RoleAssignmentForm />
+    <RoleAssignmentResult />
+  </div>
 </template>
+
+<style scoped>
+.role-assignment {
+  width: 600px;
+  margin: auto;
+  padding: 16px 0;
+}
+</style>
