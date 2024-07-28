@@ -39,6 +39,15 @@ const assignRoles = () => {
   roleStore.setRoles(roleList);
   roleStore.assignRoles();
 };
+
+/**
+ * 入力フィールドを初期状態にリセットする。
+ */
+const resetInputs = () => {
+  numParticipants.value = 1;
+  participantNames.value = Array(maxParticipants).fill('');
+  roles.value = Array(maxParticipants).fill('');
+};
 </script>
 
 <template>
@@ -69,6 +78,7 @@ const assignRoles = () => {
       </div>
       <div class="decision-buton-wrapper">
         <button class="decision-buton" @click="assignRoles">決定</button>
+        <button class="decision-buton" @click="resetInputs">リセット</button>
       </div>
     </div>
   </section>
@@ -184,9 +194,11 @@ const assignRoles = () => {
   }
   .decision-buton-wrapper {
     margin-top: 24px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
     .decision-buton {
       display: block;
-      margin: auto;
       width: 200px;
       height: 50px;
       border: 1px solid #555;
